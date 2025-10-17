@@ -8,7 +8,7 @@ function add(input){  //changing the passing parameters from number to input for
   const numbers = input.split(',').map(Number);
    
    
- //sum all numbers 
+ //sum all numbers (for single return one number and for multiple retrurn sum of all numbers)
   return numbers.reduce((sum,num)=> sum + num,0);
  
 }
