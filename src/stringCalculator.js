@@ -4,7 +4,7 @@ function add(numbers){
  //if input is empty then return 0   
  if(numbers === '') return 0;
 
- //if input is a single number then return that number 
+ // Returns 0 for empty string, otherwise returns the number itself
  return Number(numbers);
 }
 
