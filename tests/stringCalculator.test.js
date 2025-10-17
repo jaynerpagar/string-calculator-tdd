@@ -14,3 +14,7 @@ test('should return the sum of two numbers separated by comma',()=>{
     expect(add('200,500')).toBe(700);
 });
 
+test('should sum multiple numbers separated by commas', ()=>{
+    expect(add('1,2,3,4')).toBe(10);
+    expect(add('5,10,15')).toBe(30);
+})
