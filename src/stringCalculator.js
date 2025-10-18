@@ -33,6 +33,10 @@ function checkNegatives(numbers) { // check for negative numbers
   }
 }
 
+function filterLargeNumbers(numbers) { // filter numbers greater than 1000
+  return numbers.filter(n => n <= 1000);
+}
+
 function add(input) {
   if (input === '') return 0;
 
@@ -42,7 +46,7 @@ function add(input) {
   checkNegatives(numbers);
 
    // Ignore numbers greater than 1000
-  numbers = numbers.filter(n => n <= 1000);
+  numbers = filterLargeNumbers(numbers);
 
   return numbers.reduce((sum, num) => sum + num, 0);
 
