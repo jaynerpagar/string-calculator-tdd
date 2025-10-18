@@ -17,9 +17,15 @@ test('should return the sum of two numbers separated by comma',()=>{
 test('should sum multiple numbers separated by commas', ()=>{
     expect(add('1,2,3,4')).toBe(10);
     expect(add('5,10,15')).toBe(30);
-})
+});
 
 test('should handle newline as delimeter along with commas',()=>{
   expect(add('1\n2,3')).toBe(6);
   expect(add('10\n20\n30')).toBe(60);
+});
+
+test('should support custom delimiters definr in the beginning of the string',()=> {
+  expect(add('//;\n1;2;3')).toBe(6);
+  expect(add('//#\n10#20#30')).toBe(60);
+  expect(add('//|\n1|2|3')).toBe(6);
 })
