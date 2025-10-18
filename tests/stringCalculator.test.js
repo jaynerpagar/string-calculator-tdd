@@ -25,7 +25,13 @@ test('should handle newline as delimeter along with commas',()=>{
 });
 
 test('should support custom delimiters definr in the beginning of the string',()=> {
-  expect(add('//;\n1;2;3')).toBe(6);
-  expect(add('//#\n10#20#30')).toBe(60);
+  expect(add('//;\n1;2')).toBe(3);
+  expect(add('//#\n2#3#4')).toBe(9);
   expect(add('//|\n1|2|3')).toBe(6);
-})
+});
+
+
+test('should throw an error for negative numbers', () => {
+  expect(() => add('1,-2,3')).toThrow('Negatives not allowed: -2');
+  expect(() => add('//;\n-1;2')).toThrow('Negatives not allowed: -1');
+});
