@@ -1,19 +1,29 @@
 
 
-function add(input){  //changing the passing parameters from number to input for better understanding 
- //if input is empty then return 0   
- if(input === '') return 0;
+function add(input) {
+  if (input === '') return 0;
 
-const normalise  = input.replace(/\n/g, ','); //normalizing the input by replacing new line with comma
+  let delimiter = /[,\n]/; // default delimiters: comma and newline
+ if (input.startsWith('//')) {
+    const parts = input.split('\n');
+    let customDelimiter = parts[0].slice(2);
 
-const number = normalise.split(',') //splitting the input string into array of numbers
-              .map(num => num.trim()) //trimming any extra spaces
-              .filter(num => num !== '') //filtering out any empty strings
-              .map(Number); //converting string numbers to integers
+    // Escape regex special characters (like |, *, +, etc.)
+    customDelimiter = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  // Convert input string to array of numbers and sum them
-return number.reduce((sum,num)=> sum + num,0);
- 
+    delimiter = new RegExp(customDelimiter);
+    input = parts[1];
+  }
+
+  const numbers = input
+    .split(delimiter)
+    .map(num => num.trim())
+    .filter(num => num !== '')
+    .map(Number);
+
+  return numbers.reduce((sum, num) => sum + num, 0);
+
 }
+
 
 module.exports = { add };
