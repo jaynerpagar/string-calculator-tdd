@@ -4,12 +4,8 @@ function add(input){  //changing the passing parameters from number to input for
  //if input is empty then return 0   
  if(input === '') return 0;
 
- //If input contains a comma, split and sum the numbers (handle single number and multiple number)
-  const numbers = input.split(',').map(Number);
-   
-   
- //sum all numbers (for single return one number and for multiple retrurn sum of all numbers)
-  return numbers.reduce((sum,num)=> sum + num,0);
+  // Convert input string to array of numbers and sum them
+  return input.split(',').map(Number).reduce((sum,num)=> sum + num,0);
  
 }
 
